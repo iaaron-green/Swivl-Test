@@ -50,6 +50,7 @@ class HomeFragment : BaseFragment(), HomeAdapter.onItemClickListener {
         binding.swipeRefreshLayout.setOnRefreshListener {
             pagedList?.dataSource?.invalidate()
         }
+        
     }
 
     private fun subscribeUI() {
