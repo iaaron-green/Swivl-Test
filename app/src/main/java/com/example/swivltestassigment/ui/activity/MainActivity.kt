@@ -12,7 +12,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         navController = findNavController(R.id.main_container)
-        //supportFragmentManager.beginTransaction().replace(R.id.main_container, HomeFragment()).commit()
     }
 
     override fun onBackPressed() {

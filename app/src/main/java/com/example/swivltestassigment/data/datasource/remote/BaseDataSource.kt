@@ -1,8 +1,6 @@
 package com.example.swivltestassigment.data.datasource.remote
 
-import android.util.Log
 import com.example.swivltestassigment.data.network.Result
-import com.google.gson.Gson
 import retrofit2.Response
 
 abstract class BaseDataSource {

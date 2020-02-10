@@ -5,9 +5,7 @@ import com.example.swivltestassigment.data.repository.UserRepository
 
 class HomeViewModel(private val userRepository: UserRepository)
     : ViewModel() {
-    var connectivityAvailable: Boolean = false
-
     val userPages by lazy {
-        userRepository.observePagedSets(connectivityAvailable)
+        userRepository.observePagedSets()
     }
 }

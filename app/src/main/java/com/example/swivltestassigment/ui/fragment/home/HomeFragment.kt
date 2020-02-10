@@ -19,7 +19,6 @@ import com.example.swivltestassigment.ui.activity.MainActivity
 import com.example.swivltestassigment.ui.adapter.HomeAdapter
 import com.example.swivltestassigment.ui.fragment.BaseFragment
 import com.example.swivltestassigment.ui.fragment.ViewModelFactory
-import com.example.swivltestassigment.ui.fragment.profile.ProfileFragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -66,11 +65,8 @@ class HomeFragment : BaseFragment(), HomeAdapter.onItemClickListener {
     }
 
     override fun onItemClick(userModel: UserModel) {
-        val profile = ProfileFragment.newInstance(userModel)
         findNavController().navigate(R.id.action_homeFragment_to_profileFragment, bundleOf(
             Constants.BUNDLE_KEY to Gson().toJson(userModel)))
-       /* getBaseActivity()?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.main_container, profile)?.addToBackStack(null)?.commit();*/
     }
 
 }

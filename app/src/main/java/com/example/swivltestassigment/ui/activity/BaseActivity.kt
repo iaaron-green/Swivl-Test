@@ -40,7 +40,7 @@ abstract class BaseActivity: AppCompatActivity() {
     private fun getDialogProgressBar(): Dialog? {
         val dialogProgressBar = Dialog(this)
         dialogProgressBar.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialogProgressBar.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialogProgressBar.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialogProgressBar.setContentView(R.layout.progress_view)
         dialogProgressBar.setCancelable(false)
         return dialogProgressBar
