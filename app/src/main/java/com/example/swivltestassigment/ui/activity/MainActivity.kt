@@ -1,15 +1,18 @@
 package com.example.swivltestassigment.ui.activity
 
 import android.os.Bundle
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.example.swivltestassigment.R
-import com.example.swivltestassigment.ui.fragment.home.HomeFragment
 
 class MainActivity : BaseActivity() {
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportFragmentManager.beginTransaction().replace(R.id.main_container, HomeFragment()).commit()
+        navController = findNavController(R.id.main_container)
+        //supportFragmentManager.beginTransaction().replace(R.id.main_container, HomeFragment()).commit()
     }
 
     override fun onBackPressed() {

@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
+import com.example.swivltestassigment.Constants
 import com.example.swivltestassigment.R
 import com.example.swivltestassigment.data.model.UserModel
 import com.example.swivltestassigment.databinding.FragmentHomeBinding
@@ -17,6 +20,7 @@ import com.example.swivltestassigment.ui.adapter.HomeAdapter
 import com.example.swivltestassigment.ui.fragment.BaseFragment
 import com.example.swivltestassigment.ui.fragment.ViewModelFactory
 import com.example.swivltestassigment.ui.fragment.profile.ProfileFragment
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment(), HomeAdapter.onItemClickListener {
@@ -63,8 +67,10 @@ class HomeFragment : BaseFragment(), HomeAdapter.onItemClickListener {
 
     override fun onItemClick(userModel: UserModel) {
         val profile = ProfileFragment.newInstance(userModel)
-        getBaseActivity()?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.main_container, profile)?.addToBackStack(null)?.commit();
+        findNavController().navigate(R.id.action_homeFragment_to_profileFragment, bundleOf(
+            Constants.BUNDLE_KEY to Gson().toJson(userModel)))
+       /* getBaseActivity()?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.main_container, profile)?.addToBackStack(null)?.commit();*/
     }
 
 }

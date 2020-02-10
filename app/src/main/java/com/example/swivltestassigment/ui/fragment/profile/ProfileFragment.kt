@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso
 /**
  * A simple [Fragment] subclass.
  */
-class ProfileFragment private constructor(): BaseFragment() {
+class ProfileFragment: BaseFragment() {
     lateinit var binding: FragmentProfileBinding;
     private lateinit var viewModel: ProfileViewModel;
     private var viewModelFactory: ViewModelFactory = ViewModelFactory();
@@ -35,6 +35,11 @@ class ProfileFragment private constructor(): BaseFragment() {
             ProfileFragment().apply {
                 arguments = bundleOf(BUNDLE_KEY to Gson().toJson(userModel))
             }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retainInstance = true;
     }
 
     override fun onCreateView(
